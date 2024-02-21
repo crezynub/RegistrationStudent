@@ -1,4 +1,4 @@
-package com.example.RegistrationStudent;
+package com.example.RegistrationStudent.Event;
 
 import org.springframework.context.ApplicationEvent;
 

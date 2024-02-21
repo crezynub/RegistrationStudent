@@ -1,4 +1,3 @@
-FROM openjdk:21
-EXPOSE 8080
-COPY target/your-application.jar your-application.jar
-ENTRYPOINT ["java","-jar","/your-application.jar"]
+FROM adoptopenjdk:21-jre-hotspot
+COPY target/my-application.jar my-application.jar
+ENTRYPOINT ["java", "-jar", "RegistrationStudent.jar"]

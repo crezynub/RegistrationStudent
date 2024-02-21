@@ -1,5 +1,6 @@
-package com.example.RegistrationStudent;
+package com.example.RegistrationStudent.Service;
 
+import com.example.RegistrationStudent.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

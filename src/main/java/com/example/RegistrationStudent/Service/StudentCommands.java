@@ -1,5 +1,6 @@
-package com.example.RegistrationStudent;
+package com.example.RegistrationStudent.Service;
 
+import com.example.RegistrationStudent.Service.StudentService;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 

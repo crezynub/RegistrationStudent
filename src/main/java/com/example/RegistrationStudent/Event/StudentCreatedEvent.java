@@ -1,5 +1,6 @@
-package com.example.RegistrationStudent;
+package com.example.RegistrationStudent.Event;
 
+import com.example.RegistrationStudent.Student;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
