@@ -1,6 +1,7 @@
 package com.example.RegistrationStudent.Service;
 
 import com.example.RegistrationStudent.Student;
+import org.springframework.shell.standard.ShellOption;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,9 +21,8 @@ public class StudentService {
         student.setId((long) students.size() + 1);
         student.setFirstname(firstname);
         student.setLastname(lastname);
-        student.setAge(age);
         students.add(student);
-    }
+   }
 
     public void deleteStudent(Long id) {
         students.removeIf(student -> student.getId().equals(id));

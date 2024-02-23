@@ -1,13 +1,16 @@
 package com.example.RegistrationStudent.Service;
 
 import com.example.RegistrationStudent.Service.StudentService;
+import com.example.RegistrationStudent.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellOption;
 
 @ShellComponent
 public class StudentCommands {
     private final StudentService studentService;
-
+@Autowired
     public StudentCommands(StudentService studentService){
         this.studentService = studentService;
     }
@@ -18,8 +21,15 @@ public class StudentCommands {
     }
 
     @ShellMethod("Add a new student")
-    public void addStudent(String firstName, String lastName, int age) {
-        studentService.addStudent(firstName, lastName, age);
+    public void addStudent(
+            @ShellOption String firstname,
+            @ShellOption String lastname,
+            @ShellOption int age) {
+        Student student = new Student();
+        student.setFirstname(firstname);
+        student.setLastname(lastname);
+        student.setAge(age);
+        studentService.addStudent(student.getFirstname(), student.getLastname(), student.getAge());
     }
 
     @ShellMethod("Delete student by id")

@@ -1,2 +1,2 @@
 application.properties:
-  student.create-on-startup=false
+  student.create-on-startup=true
