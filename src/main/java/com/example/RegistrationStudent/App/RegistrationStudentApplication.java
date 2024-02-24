@@ -1,11 +1,10 @@
-package com.example.RegistrationStudent;
+package com.example.RegistrationStudent.App;
 
 import com.example.RegistrationStudent.Service.StudentService;
+import com.example.RegistrationStudent.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ConfigurableApplicationContext;
-@EntityScan
 @SpringBootApplication
 public class RegistrationStudentApplication {
 
@@ -25,8 +24,8 @@ public class RegistrationStudentApplication {
 			student2.setLastname("Петров");
 			student2.setAge(21);
 
-			studentService.addStudent(student1.getFirstname(), student1.getLastname(), student1.getAge());
-			studentService.addStudent(student2.getFirstname(), student2.getLastname(), student2.getAge());
+			studentService.addStudent(student1);
+			studentService.addStudent(student2);
 		}
 	}
 }
