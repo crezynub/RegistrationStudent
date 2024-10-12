@@ -1,8 +1,14 @@
 package com.example.RegistrationStudent.Event;
 
-import com.example.RegistrationStudent.Student;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
-public interface StudentEventListener {
-    void handleStudentCreated(Student student);
-    void handleStudentDeleted(Long studentId);
+@Component
+public class StudentEventListener {
+
+    @EventListener
+    public void listen(StudentEvent studentEvent){
+        System.out.println("listen method");
+        System.out.println(studentEvent.getStudent());
+    }
 }

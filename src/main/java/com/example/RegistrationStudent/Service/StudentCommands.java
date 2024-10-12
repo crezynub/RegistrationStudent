@@ -1,43 +1,68 @@
 package com.example.RegistrationStudent.Service;
 
-import com.example.RegistrationStudent.Student;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
-import org.springframework.shell.standard.ShellOption;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 @ShellComponent
+@RequiredArgsConstructor
 public class StudentCommands {
-    private final StudentService studentService;
-@Autowired
-    public StudentCommands(StudentService studentService){
-        this.studentService = studentService;
+
+
+    private final StudentDAO studentDAO;
+
+    @ShellMethod(value = "Information on commands", key = "info")
+    public String info() {
+        return "Select command: " +
+                "(add) Add Student, " +
+                "(list) All List Students, " +
+                "(del) Remove Student by ID, " +
+                "(delAll) Delete all Students";
     }
 
-    @ShellMethod("Display all students")
-    public void displayStudents() {
-        studentService.getAllStudents().forEach(System.out::println);
+    @ShellMethod(value = "List Student",key = "list")
+    public void list() {
+        studentDAO.studentList().forEach(System.out::println);
     }
 
-    @ShellMethod("Add a new student")
-    public void addStudent(
-            @ShellOption String firstname,
-            @ShellOption String lastname,
-            @ShellOption int age) {
-        Student student = new Student();
-        student.setFirstname(firstname);
-        student.setLastname(lastname);
-        student.setAge(age);
-        studentService.addStudent(student);
+    @ShellMethod(value = "Add Student",key = "add")
+    public void add() throws IOException {
+        boolean stop = true;
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        while (stop) {
+            System.out.println("enter your firstName: ");
+            String firstName = bf.readLine().trim();
+            if (!StudentValidator.isfirstName(firstName)) {
+                System.out.println("Invalid firstName input format");
+                continue;
+            }
+            System.out.println("enter your lastName: ");
+            String lastName = bf.readLine().trim();
+            if (!StudentValidator.islastName(lastName)) {
+                System.out.println("Invalid lastName input format");
+                continue;
+            }
+            System.out.println("enter your age: ");
+            String age = bf.readLine().trim();
+            if (!StudentValidator.isAge(age)) {
+                System.out.println("Invalid age input format");
+                continue;
+            }
+            studentDAO.save(new Student(1,firstName, lastName, age));
+            stop=false;
+        }
+    }
+    @ShellMethod(value = "Remove Student by ID",key = "del")
+    public void delete(int id) {
+        studentDAO.delete(id);
     }
 
-    @ShellMethod("Delete student by id")
-    public void deleteStudent(Long id) {
-        studentService.deleteStudent(id);
-    }
-
-    @ShellMethod("Clear the list of students")
-    public void clearStudents() {
-        studentService.clearStudentsList();
+    @ShellMethod(value = "Delete all Students", key = "delAll")
+    public void deleteAll() {
+        studentDAO.deleteAll();
     }
 }
