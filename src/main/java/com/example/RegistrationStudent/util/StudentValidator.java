@@ -1,4 +1,4 @@
-package com.example.RegistrationStudent.Service;
+package com.example.RegistrationStudent.util;
 
 import java.util.regex.Pattern;
 

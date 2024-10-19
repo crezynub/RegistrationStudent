@@ -1,6 +1,7 @@
-package com.example.RegistrationStudent.Service;
+package com.example.RegistrationStudent.dao;
 
-import com.example.RegistrationStudent.Event.StudentEvent;
+import com.example.RegistrationStudent.event.StudentEvent;
+import com.example.RegistrationStudent.model.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
@@ -29,10 +30,10 @@ public class StudentDAO {
     }
 
     public void delete(int id) {
-        for(Student student : people){
-            if (student.getId() == id) {
-                publisher.publishEvent(new StudentEvent(this,student));
-                people.remove(student);
+        for(Student person : people){
+            if (person.getId() == id) {
+                publisher.publishEvent(new StudentEvent(this,person));
+                people.remove(person);
             }
         }
     }

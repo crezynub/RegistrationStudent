@@ -1,8 +1,8 @@
-package com.example.RegistrationStudent.Config;
+package com.example.RegistrationStudent.config;
 
-import com.example.RegistrationStudent.Properties.InjectStudentYml;
-import com.example.RegistrationStudent.Properties.ReaderStudentYml;
-import com.example.RegistrationStudent.Service.StudentDAO;
+import com.example.RegistrationStudent.properties.InjectStudentYml;
+import com.example.RegistrationStudent.properties.ReaderStudentYml;
+import com.example.RegistrationStudent.dao.StudentDAO;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

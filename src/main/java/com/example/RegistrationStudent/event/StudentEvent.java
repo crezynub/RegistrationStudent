@@ -1,6 +1,6 @@
-package com.example.RegistrationStudent.Event;
+package com.example.RegistrationStudent.event;
 
-import com.example.RegistrationStudent.Service.Student;
+import com.example.RegistrationStudent.model.Student;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
@@ -11,6 +11,6 @@ public class StudentEvent extends ApplicationEvent {
 
     public StudentEvent(Object source, Student student) {
         super(source);
-        this.student = student;
+        this.student=student;
     }
 }

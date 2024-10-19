@@ -1,4 +1,4 @@
-package com.example.RegistrationStudent.Event;
+package com.example.RegistrationStudent.event;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;

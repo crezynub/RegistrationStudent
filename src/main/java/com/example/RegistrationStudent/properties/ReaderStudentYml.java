@@ -1,4 +1,4 @@
-package com.example.RegistrationStudent.Properties;
+package com.example.RegistrationStudent.properties;
 
 import lombok.Data;
 import lombok.Getter;

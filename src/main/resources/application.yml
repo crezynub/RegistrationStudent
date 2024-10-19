@@ -2,30 +2,29 @@ app:
   inject:
     enabled: true
 
-
-inject-person-yml:
-  person-yml:
+inject-student-yml:
+  student-yml:
     -
-      first-name: "????"
-      last-name: "???????"
-      age: "19"
-    -
-      first-name: "????"
-      last-name: "??????"
+      first-name: "Анна"
+      last-name: "Угрюмченко"
       age: "18"
     -
-      first-name: "???????"
-      last-name: "????????"
-      age: "19"
+      first-name: "Евгений"
+      last-name: "Бажин"
+      age: "20"
     -
-      first-name: "????"
-      last-name: "?????????"
+      first-name: "Александр"
+      last-name: "Казаков"
       age: "21"
     -
-      first-name: "?????"
-      last-name: "???????"
+      first-name: "Иван"
+      last-name: "Новоселов"
       age: "22"
     -
-      first-name: "????????"
-      last-name: "??????"
-      age: "18"
+      first-name: "Александр"
+      last-name: "Круткин"
+      age: "19"
+    -
+      first-name: "Сергей"
+      last-name: "Шестаков"
+      age: "21"

@@ -1,5 +1,9 @@
-package com.example.RegistrationStudent.Service;
+package com.example.RegistrationStudent.shellcommand;
 
+
+import com.example.RegistrationStudent.model.Student;
+import com.example.RegistrationStudent.dao.StudentDAO;
+import com.example.RegistrationStudent.util.StudentValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
@@ -10,7 +14,7 @@ import java.io.InputStreamReader;
 
 @ShellComponent
 @RequiredArgsConstructor
-public class StudentCommands {
+public class StudentShellCommands {
 
 
     private final StudentDAO studentDAO;

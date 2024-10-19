@@ -1,7 +1,7 @@
-package com.example.RegistrationStudent.Properties;
+package com.example.RegistrationStudent.properties;
 
-import com.example.RegistrationStudent.Service.Student;
-import com.example.RegistrationStudent.Service.StudentDAO;
+import com.example.RegistrationStudent.model.Student;
+import com.example.RegistrationStudent.dao.StudentDAO;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +20,9 @@ public class InjectStudentYml {
     }
 
     public void inject(){
-        for (ReaderStudentYml.StudentYml studen : readerStudentYml.getStudentYml()) {
-            studentDAO.save(new Student(1,studen.getLastName(),
-                    studen.getFirstName(),studen.getAge()));
+        for (ReaderStudentYml.StudentYml student : readerStudentYml.getStudentYml()) {
+            studentDAO.save(new Student(1, student.getLastName(),
+                    student.getFirstName(),student.getAge()));
         }
     }
 }
